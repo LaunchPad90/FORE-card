@@ -7,11 +7,14 @@ module.exports = {
 };
 
 async function signup(req, res) {
+  const user = new User(req.body);
   try {
-      const user = await User.create(req.body);
-      res.json(user);
-  } catch(err) {
-      res.status(400).json(err);
+    await user.save();
+    const token = createJWT(user);
+    res.json({ token });
+  } catch (err) {
+    // Probably a duplicate email
+    res.status(400).json(err);
   }
 }
 
