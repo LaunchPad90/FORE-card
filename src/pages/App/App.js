@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
-import SignupForm from './components/SignupForm/SignupForm';
-import userService from './utils/userService';
-import NavBar from './components/Navbar/NavBar';
+import userService from '../../utils/userService';
 import { Route, Switch } from 'react-router-dom';
+import HomePage from '../HomePage/HomePage';
 
 
 class App extends Component {
@@ -15,16 +14,15 @@ class App extends Component {
     userService.logOut();
     this.setState({ user: null });
   }
+  
+  handleSignup = () => {
+    this.setState({user: userService.getUser()});
+  }
 
   render() {
     return (
       <div className="App">
-        <h1>Working</h1>
-        <SignupForm />
-        <NavBar 
-          user={this.state.user}
-          handleLogOut={this.handleLogOut}
-        />
+        <HomePage />
       </div>
     );
   }
