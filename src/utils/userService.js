@@ -21,7 +21,12 @@ function signup(user) {
     return tokenService.getUserFromToken();
   }
 
+  function logOut() {
+    tokenService.removeToken();
+  }
+
   export default {
     signup,
-    getUser
+    getUser,
+    logOut
   };
