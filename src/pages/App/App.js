@@ -6,6 +6,7 @@ import HomePage from '../HomePage/HomePage';
 import SignupPage from '../SignupPage/SignupPage';
 import LoginPage from '../LoginPage/LoginPage';
 import ScoreCardPage from '../../pages/ScoreCardPage/ScoreCardPage';
+import NavBar from '../../components/Navbar/NavBar';
 
 
 class App extends Component {
@@ -25,6 +26,12 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <header>
+          <NavBar 
+            user={userService.getUser()}
+            handleLogOut={this.handleLogOut}
+          />
+        </header>
         <Switch>
           <Route exact path='/' render={() => 
             <HomePage 
