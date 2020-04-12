@@ -1,43 +1,19 @@
-import React, { Component } from 'react'
-import userService from '../../utils/userService'
-import { Link } from 'react-router-dom';
+import React, { Component } from 'react';
+import SignupForm from '../../components/SignupForm/SignupForm';
 
 
 class SignupPage extends Component {
-    state = {
-        name: '',
-        email: '',
-        password: '',
-    } 
+  constructor(props) {
+    super(props);
+  }
 
-    handleChange = (e) => {
-        this.setState({[e.target.name]: e.target.value});
-    }
-
-    handleSubmit = async(e) => {
-        e.preventDefault();
-        try {
-            await userService.signup(this.state)
-            this.props.handleSignupOrLogin();
-            console.log('success')
-        }
-        catch(err) {
-            console.log(err)
-        }
-    }
-
-    render() {
-        return (
-            <form onSubmit={this.handleSubmit}>
-                <input type='text' name='name' placeholder='name' onChange={this.handleChange}/>
-                <input type='email' name='email' placeholder='email' onChange={this.handleChange} />
-                <input type='password' name='password' placeholder='password' onChange={this.handleChange} />
-                <input type='submit'></input>
-                <Link to='/' >Cancel</Link>
-            </form>
-        )
-    }
+  render() {
+    return (
+      <div className='SignupPage'>
+        <SignupForm {...this.props} />
+      </div>
+    );
+  }
 }
-
 
 export default SignupPage;
