@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import userService from '../../utils/userService';
+import { Link } from 'react-router-dom';
 
-class LoginForm extends Component {
+class LoginPage extends Component {
 
     state = {
         email: '',
@@ -33,9 +34,10 @@ class LoginForm extends Component {
                 <input type='email' name='email' placeholder='email' onChange={this.handleChange} />
                 <input type='password' name='password' placeholder='password' onChange={this.handleChange} />
                 <input type='submit'></input>
+                <Link to='/'>Cancel</Link>
             </form>
         )
     }
 }
 
-export default LoginForm;
+export default LoginPage;

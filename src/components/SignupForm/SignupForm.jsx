@@ -1,20 +1,21 @@
 import React, { Component } from 'react'
 import userService from '../../utils/userService'
+import { Link } from 'react-router-dom';
 
 
-class SignupForm extends Component {
+class SignupPage extends Component {
     state = {
         name: '',
         email: '',
         password: '',
     } 
 
-    handleChange = (event) => {
-        this.setState({[event.target.name]: event.target.value});
+    handleChange = (e) => {
+        this.setState({[e.target.name]: e.target.value});
     }
 
-    handleSubmit = async(event) => {
-        event.preventDefault();
+    handleSubmit = async(e) => {
+        e.preventDefault();
         try {
             await userService.signup(this.state)
             this.props.handleSignupOrLogin();
@@ -32,10 +33,11 @@ class SignupForm extends Component {
                 <input type='email' name='email' placeholder='email' onChange={this.handleChange} />
                 <input type='password' name='password' placeholder='password' onChange={this.handleChange} />
                 <input type='submit'></input>
+                <Link to='/' >Cancel</Link>
             </form>
         )
     }
 }
 
 
-export default SignupForm;
+export default SignupPage;
