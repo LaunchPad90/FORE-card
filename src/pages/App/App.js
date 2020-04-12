@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import './App.css';
 import userService from '../../utils/userService';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 import HomePage from '../HomePage/HomePage';
 import SignupPage from '../SignupPage/SignupPage';
 import LoginPage from '../LoginPage/LoginPage';
+import ScoreCard from '../../components/ScoreCard/ScoreCard';
 
 
 class App extends Component {
@@ -42,6 +43,12 @@ class App extends Component {
               history={history}
               handleSignupOrLogin={this.handleSignupOrLogin}
             />
+          }/>
+          <Route exact path='/scorecard' render={() => 
+            userService.getUser() ?
+              <ScoreCard />
+            :
+              <Redirect to='/login/'/>
           }/>
         </Switch>
       </div>
