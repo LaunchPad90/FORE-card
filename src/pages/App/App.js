@@ -5,7 +5,7 @@ import { Route, Switch, Redirect } from 'react-router-dom';
 import HomePage from '../HomePage/HomePage';
 import SignupPage from '../SignupPage/SignupPage';
 import LoginPage from '../LoginPage/LoginPage';
-import ScoreCard from '../../components/ScoreCard/ScoreCard';
+import ScoreCardPage from '../../pages/ScoreCardPage/ScoreCardPage';
 
 
 class App extends Component {
@@ -46,7 +46,9 @@ class App extends Component {
           }/>
           <Route exact path='/scorecard' render={() => 
             userService.getUser() ?
-              <ScoreCard />
+              <ScoreCardPage 
+                user={userService.getUser()}
+              />
             :
               <Redirect to='/login/'/>
           }/>
