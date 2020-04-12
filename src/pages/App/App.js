@@ -26,7 +26,10 @@ class App extends Component {
       <div className="App">
         <Switch>
           <Route exact path='/' render={() => 
-            <HomePage />
+            <HomePage 
+              user={userService.getUser()}
+              handleLogOut={this.handleLogOut}
+            />
           }/>
           <Route exact path='/login' render={({ history }) => 
             <LoginPage 
