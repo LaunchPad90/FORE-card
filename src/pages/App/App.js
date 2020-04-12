@@ -3,6 +3,8 @@ import './App.css';
 import userService from '../../utils/userService';
 import { Route, Switch } from 'react-router-dom';
 import HomePage from '../HomePage/HomePage';
+import SignupForm from '../SignupPage/SignupPage';
+import LoginForm from '../LoginPage/LoginPage';
 
 
 class App extends Component {
@@ -14,15 +16,29 @@ class App extends Component {
     userService.logOut();
     this.setState({ user: null });
   }
-  
-  handleSignup = () => {
+
+  handleSignupOrLogin = () => {
     this.setState({user: userService.getUser()});
   }
 
   render() {
     return (
       <div className="App">
-        <HomePage />
+        <Switch>
+          <Route exact path='/' render={() => 
+            <HomePage />
+          }/>
+          <Route exact path='/login' render={() => 
+            <LoginForm 
+              handleSignupOrLogin={this.handleSignupOrLogin}
+            />
+          }/>
+          <Route exact path='/signup' render={() => 
+            <SignupForm 
+              handleSignupOrLogin={this.handleSignupOrLogin}
+            />
+          }/>
+        </Switch>
       </div>
     );
   }
