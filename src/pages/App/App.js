@@ -20,6 +20,7 @@ class App extends Component {
   handleLogOut = () => {
     userService.logOut();
     this.setState({ user: null });
+    localStorage.removeItem('token');
   }
 
   handleSignupOrLogin = () => {
@@ -46,7 +47,6 @@ async componentDidMount() {
           <Route exact path='/' render={() => 
             <HomePage 
               user={userService.getUser()}
-              handleLogOut={this.handleLogOut}
             />
           }/>
           <Route exact path='/login' render={({ history }) => 
