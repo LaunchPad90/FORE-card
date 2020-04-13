@@ -2,11 +2,6 @@ import tokenService from './tokenService';
 
 const BASE_URL = '/api/scorecard';
 
-export default {
-    index,
-    create
-}
-
 function index() {
     const options = {
         method: 'GET',
@@ -27,4 +22,9 @@ function create(ScoreCard) {
         body: JSON.stringify(ScoreCard)
     };
     return fetch(BASE_URL, options).then(res => res.json());
+}
+
+export default {
+    index,
+    create
 }

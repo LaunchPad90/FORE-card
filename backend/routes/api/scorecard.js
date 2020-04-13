@@ -3,7 +3,7 @@ const router = express.Router();
 const scoreCardCtrl = require('../../controllers/scoreCards');
 
 router.use(require('../../../backend/config/auth'));
-router.post('/scorecard', scoreCardCtrl.index);
+router.get('/scorecard', scoreCardCtrl.create);
 
 
 

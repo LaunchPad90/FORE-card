@@ -6,7 +6,9 @@ class ScoreCardPage extends Component {
 
     render() {
         return(
-            <ScoreCard />
+            <ScoreCard 
+                user={this.props.user}
+            />
         )
     }
 }

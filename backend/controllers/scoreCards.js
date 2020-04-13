@@ -1,9 +1,10 @@
-const scoreCard = require('../models/scoreCard');
+const ScoreCard = require('../models/scoreCard');
+
 
 module.exports = {
-    index
+    create
 }
 
-function index(req, res) {
-    console.log('USER: ', req.user);
+function create(req, res) {
+    console.log('SOIDJOFIJSDOFIJDS');
 }

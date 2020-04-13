@@ -7,11 +7,14 @@ import SignupPage from '../SignupPage/SignupPage';
 import LoginPage from '../LoginPage/LoginPage';
 import ScoreCardPage from '../../pages/ScoreCardPage/ScoreCardPage';
 import NavBar from '../../components/Navbar/NavBar';
+import scoreCardService from '../../utils/scoreCardService';
+
 
 
 class App extends Component {
   state = {
-    user: userService.getUser() 
+    user: userService.getUser(),
+    scoreCard: []
   }
 
   handleLogOut = () => {
@@ -22,6 +25,13 @@ class App extends Component {
   handleSignupOrLogin = () => {
     this.setState({user: userService.getUser()});
   }
+
+  /* -------- Lifecycle Methods -------- */
+
+async componentDidMount() {
+  const scoreCard = await scoreCardService.index();
+  this.setState({scoreCard})
+}
 
   render() {
     return (
