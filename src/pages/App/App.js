@@ -9,6 +9,8 @@ import ScoreCardPage from '../../pages/ScoreCardPage/ScoreCardPage';
 import NavBar from '../../components/Navbar/NavBar';
 import scoreCardService from '../../utils/scoreCardService';
 
+import SignUp from '../../components/SignupForm/MaterialSignUp';
+
 
 
 class App extends Component {
@@ -68,6 +70,9 @@ async componentDidMount() {
               />
             :
               <Redirect to='/login/'/>
+          }/>
+          <Route exact path='/material' render={() =>
+            <SignUp />
           }/>
         </Switch>
       </div>

@@ -5,6 +5,10 @@ module.exports = {
     create
 }
 
-function create(req, res) {
-    console.log('WOOOOOOOOOOOOO');
+async function create(req, res) {
+    try {
+        await ScoreCard.create(req.body);
+    } catch(err) {
+        res.json({err});
+    }
 }

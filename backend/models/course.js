@@ -4,9 +4,14 @@ const Schema = mongoose.Schema;
 const courseSchema = new Schema({
     name: String,
     par: Number,
-    city: String,
-    stateAbr: String,
-    isPrivate: Boolean,
+    // totalDistance: Number,
+    // hole: [{
+    //     type: Schema.Types.ObjectId,
+    //     ref: 'Hole'
+    // }],
+    // city: String,
+    // stateAbr: String,
+    // isPrivate: Boolean,
 })
 
 module.exports = mongoose.model('Course', courseSchema);
