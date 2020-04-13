@@ -6,5 +6,5 @@ module.exports = {
 }
 
 function create(req, res) {
-    console.log('SOIDJOFIJSDOFIJDS');
+    console.log('WOOOOOOOOOOOOO');
 }
