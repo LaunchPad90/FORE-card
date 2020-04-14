@@ -1,43 +1,39 @@
-import React, { useState } from 'react'
-import Container from '@material-ui/core/Container';
-import Grid from '@material-ui/core/Grid';
-import { makeStyles } from '@material-ui/styles';
+import React, { useState } from 'react';
+import Grid from '@material-ui/core/Grid'
+import '../CardRow/CardRow.css'
 
+import { makeStyles } from '@material-ui/core/styles';
+import Paper from '@material-ui/core/Paper';
+import CardRow from '../CardRow/CardRow';
 
+export default function ScoreCard(props) {
+    const useStyles = makeStyles((theme) => ({
+        root: {
+            flexGrow: 1,
+        },
+        paper: {
+            padding: theme.spacing(2),
+            textAlign: 'center',
+            color: theme.palette.text.secondary,
+            
+        },
+        container: {
+            padding: theme.spacing(1),
+            textAlign: 'center',
+            direction: 'row'
+        },
+        row: {
+            direction: 'row'
+        }
+    }));
 
-
-
-
-const useStyles = makeStyles((theme) => ({
-    paper: {
-        marginTop: theme.spacing(8),
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center'
-        
-    }
-}))
-
-export default function ScoreCard() {
     const classes = useStyles();
 
-    const [card, setCard] = useState({
-        user: '',
-        course: '',
-        scores: []
-    })
-
-
     return (
-        <Container component="main" maxWidth="xs">
-            <div className={classes.paper}>
-                <Grid container>
-                    <Grid item>
-                        
-                        
-                    </Grid>
-                </Grid>
-            </div>
-        </Container>
+        <div>
+            <div>
+                <CardRow />
+            </div> 
+        </div>
     )
 }

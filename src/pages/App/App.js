@@ -6,17 +6,27 @@ import HomePage from '../HomePage/HomePage';
 import ScoreCardPage from '../../pages/ScoreCardPage/ScoreCardPage';
 import NavBar from '../../components/Navbar/NavBar';
 import scoreCardService from '../../utils/scoreCardService';
+import Course from '../../components/Course/Course';
 import SignUp from '../../components/SignupForm/MaterialSignUp';
-import SignIn from '../LoginPage/LoginPage';
-import SignupForm from '../../components/SignupForm/SignupForm';
+import Login from '../LoginPage/MaterialLoginPage';
+
 
 
 
 
 class App extends Component {
-  state = {
-    user: userService.getUser(),
-    scoreCard: []
+  constructor() {
+    super();
+    this.state = {
+      ...this.getInitialState()
+    }
+  }
+
+  getInitialState() {
+    return{
+      user: userService.getUser(),
+      scoreCard: scoreCardService.index()
+    }
   }
 
   handleLogOut = () => {
@@ -40,19 +50,20 @@ async componentDidMount() {
     return (
       <div className="App">
         <header>
-          <NavBar 
+          <NavBar
             user={userService.getUser()}
             handleLogOut={this.handleLogOut}
           />
         </header>
         <Switch>
-          <Route exact path='/' render={() => 
+          <Route exact path='/' render={({ history }) => 
             <HomePage 
+            history={history}
               user={userService.getUser()}
             />
           }/>
           <Route exact path='/login' render={({ history }) => 
-            <SignIn
+            <Login
               history={history}
               handleSignupOrLogin={this.handleSignupOrLogin}
             />
@@ -63,13 +74,16 @@ async componentDidMount() {
               handleSignupOrLogin={this.handleSignupOrLogin}
             />
           }/>
-          <Route exact path='/scorecard' render={() => 
+          <Route exact path='/scorecards' render={() => 
             userService.getUser() ?
               <ScoreCardPage 
                 user={userService.getUser()}
               />
             :
               <Redirect to='/login/'/>
+          }/>
+          <Route exact path='/courses' render={() => 
+            <Course />
           }/>
         </Switch>
       </div>

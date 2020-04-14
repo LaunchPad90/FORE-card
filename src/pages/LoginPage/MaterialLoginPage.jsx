@@ -34,27 +34,32 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SignIn() {
+export default function Login(props) {
   const classes = useStyles();
+
   const [loginData, setLoginData] = useState({
     email: '',
     password: ''
   })
 
-  handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    await userService.login(e.target.value);
-    loginData.handleSignupOrLogin();
+    try {
+      await userService.login(loginData);
+      props.handleSignupOrLogin();
+      props.history.push('/');
+      console.log('submit from loginpage')
+    } catch (err) {
+      alert('Invalid Credentials!');
+    }
   }
 
-  handleChange = (e) => {
+  const handleChange = (e) => {
     setLoginData({
       ...loginData,
       [e.target.name]: e.target.value
     })
   }
-
-
 
   return (
     <Container component="main" maxWidth="xs">
@@ -72,6 +77,7 @@ export default function SignIn() {
             margin="normal"
             required
             fullWidth
+            value={loginData.email}
             id="email"
             label="Email Address"
             name="email"
@@ -84,18 +90,21 @@ export default function SignIn() {
             margin="normal"
             required
             fullWidth
+            onChange={handleChange}
             name="password"
             label="Password"
             type="password"
             id="password"
+            value={loginData.password}
             autoComplete="current-password"
-          />  
+          />
           <Button
             type="submit"
             fullWidth
             variant="contained"
             color="primary"
             className={classes.submit}
+            
           >
             Sign In
           </Button>

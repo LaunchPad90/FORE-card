@@ -7,7 +7,9 @@ const NavBar = (props) => {
       <div>
         <Link to='' className='NavBar-link' onClick={props.handleLogOut}>LOG OUT</Link>
         &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-        <Link to='/scorecard'>Score Cards</Link>
+        <Link to='/scorecards'>Score Cards</Link>
+        &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+        <Link to='/courses'>Find Courses</Link>
         &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
 
         <span className='NavBar-welcome'>WELCOME, {props.user.name}</span>
@@ -26,5 +28,6 @@ const NavBar = (props) => {
       </div>
     );
   };
+  
 
   export default NavBar;

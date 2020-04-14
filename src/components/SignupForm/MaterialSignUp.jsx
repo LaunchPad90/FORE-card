@@ -33,23 +33,24 @@ const useStyles = makeStyles((theme) => ({
   
 }));
 
-export default function SignUp() {
+export default function SignUp(props) {
+  console.log(props)
   const classes = useStyles();
-  const [formData, setFormData] = useState(
-      { 
-          userName: '',
-          email: '',
-          password: '',
-          passwordConf: ''
-        }
-    )
+  
+  const [formData, setFormData] = useState({ 
+    name: '',
+    email: '',
+    password: '',
+    passwordConf: ''
+  })
 
   const handleSubmit = async(e) => {
       e.preventDefault();
-      console.log(formData)
+      console.log('HANDLESUBMITSIGNUP', formData)
       try {
         await userService.signup(formData)
-        formData.handleSignupOrLogin();
+        props.handleSignupOrLogin();
+        props.history.push('/');
       }
       catch(err) {
         console.log(err)
@@ -63,6 +64,10 @@ export default function SignUp() {
         ...formData,
         [e.target.name]: e.target.value
     })
+  }
+
+  const isFormInvalid = () => {
+    return (!(formData.name && formData.email && formData.password === formData.passwordConf));
   }
 
   return (
@@ -87,12 +92,12 @@ export default function SignUp() {
             <Grid item xs={12}>
               <TextField
                 autoComplete="none"
-                name="userName"
-                value={formData.userName}
+                name="name"
+                value={formData.name}
                 variant="outlined"
                 required
                 fullWidth
-                id="userName"
+                id="name"
                 label="User Name"
                 autoFocus
                 onChange={handleChange}
@@ -145,6 +150,7 @@ export default function SignUp() {
             fullWidth
             variant="contained"
             color="primary"
+            disabled={isFormInvalid()}
             className={classes.submit}
           >
             Sign Up
