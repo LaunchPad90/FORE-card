@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const courseSchema = new Schema({
     name: String,
-    par: Number,
+    pars: [Number],
     // totalDistance: Number,
     // hole: [{
     //     type: Schema.Types.ObjectId,
@@ -12,6 +12,7 @@ const courseSchema = new Schema({
     // city: String,
     // stateAbr: String,
     // isPrivate: Boolean,
+    
 })
 
 module.exports = mongoose.model('Course', courseSchema);

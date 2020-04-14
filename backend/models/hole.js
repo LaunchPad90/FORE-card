@@ -16,7 +16,7 @@ const holeSchema = new Schema([
 
         //     }
         // ],
-        par: Number,
+        
     }
 ])
 

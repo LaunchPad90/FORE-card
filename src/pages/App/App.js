@@ -3,13 +3,12 @@ import './App.css';
 import userService from '../../utils/userService';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import HomePage from '../HomePage/HomePage';
-import SignupPage from '../SignupPage/SignupPage';
 import LoginPage from '../LoginPage/LoginPage';
 import ScoreCardPage from '../../pages/ScoreCardPage/ScoreCardPage';
 import NavBar from '../../components/Navbar/NavBar';
 import scoreCardService from '../../utils/scoreCardService';
-
 import SignUp from '../../components/SignupForm/MaterialSignUp';
+import SignIn from '../LoginPage/MaterialLoginPage';
 
 
 
@@ -52,13 +51,13 @@ async componentDidMount() {
             />
           }/>
           <Route exact path='/login' render={({ history }) => 
-            <LoginPage 
+            <SignIn
               history={history}
               handleSignupOrLogin={this.handleSignupOrLogin}
             />
           }/>
           <Route exact path='/signup' render={({ history }) => 
-            <SignupPage 
+            <SignUp 
               history={history}
               handleSignupOrLogin={this.handleSignupOrLogin}
             />
@@ -70,9 +69,6 @@ async componentDidMount() {
               />
             :
               <Redirect to='/login/'/>
-          }/>
-          <Route exact path='/material' render={() =>
-            <SignUp />
           }/>
         </Switch>
       </div>

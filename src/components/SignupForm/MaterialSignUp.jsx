@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -34,6 +34,25 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SignUp() {
   const classes = useStyles();
+  const [formData, setFormData] = useState(
+      { 
+          userName: '',
+          email: '',
+          password: '',
+          passwordConf: ''
+        }
+    )
+  const handleSubmit = (e) => {
+      e.preventDefault();
+      
+  }
+
+  const handleChange = (e) => {
+    setFormData({
+        ...formData,
+        [e.target.name]: e.target.value
+    })
+  }
 
   return (
     <Container component="main" maxWidth="xs">
@@ -50,6 +69,7 @@ export default function SignUp() {
           Sign up
         </Typography>
         <form 
+        onSubmit={handleSubmit}
         className={classes.form} 
         noValidate>
           <Grid container spacing={2}>
@@ -57,12 +77,14 @@ export default function SignUp() {
               <TextField
                 autoComplete="none"
                 name="userName"
+                value={formData.userName}
                 variant="outlined"
                 required
                 fullWidth
                 id="userName"
                 label="User Name"
                 autoFocus
+                onChange={handleChange}
                 color="secondary"
               />
             </Grid>
@@ -75,6 +97,7 @@ export default function SignUp() {
                 label="Email Address"
                 name="email"
                 autoComplete="email"
+                onChange={handleChange}
               />
             </Grid>
             <Grid item xs={12}>
@@ -87,6 +110,7 @@ export default function SignUp() {
                 type="password"
                 id="password"
                 autoComplete="none"
+                onChange={handleChange}
               />
             </Grid>
             <Grid item xs={12}>
@@ -99,6 +123,7 @@ export default function SignUp() {
                 type="password"
                 id="passwordConf"
                 autoComplete='none'
+                onChange={handleChange}
               />
             </Grid>
           </Grid>
