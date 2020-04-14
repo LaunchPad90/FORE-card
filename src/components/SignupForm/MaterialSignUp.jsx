@@ -10,6 +10,7 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import userService from '../../utils/userService';
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -42,12 +43,22 @@ export default function SignUp() {
           passwordConf: ''
         }
     )
-  const handleSubmit = (e) => {
+
+  const handleSubmit = async(e) => {
       e.preventDefault();
+      console.log(formData)
+      try {
+        await userService.signup(formData)
+        formData.handleSignupOrLogin();
+      }
+      catch(err) {
+        console.log(err)
+      }
       
   }
 
   const handleChange = (e) => {
+    console.log(e.target.value)
     setFormData({
         ...formData,
         [e.target.name]: e.target.value
@@ -94,6 +105,7 @@ export default function SignUp() {
                 required
                 fullWidth
                 id="email"
+                value={formData.email}
                 label="Email Address"
                 name="email"
                 autoComplete="email"
@@ -109,6 +121,7 @@ export default function SignUp() {
                 label="Password"
                 type="password"
                 id="password"
+                value={formData.password}
                 autoComplete="none"
                 onChange={handleChange}
               />

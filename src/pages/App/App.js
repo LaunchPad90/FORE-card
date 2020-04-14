@@ -3,12 +3,13 @@ import './App.css';
 import userService from '../../utils/userService';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import HomePage from '../HomePage/HomePage';
-import LoginPage from '../LoginPage/LoginPage';
 import ScoreCardPage from '../../pages/ScoreCardPage/ScoreCardPage';
 import NavBar from '../../components/Navbar/NavBar';
 import scoreCardService from '../../utils/scoreCardService';
 import SignUp from '../../components/SignupForm/MaterialSignUp';
-import SignIn from '../LoginPage/MaterialLoginPage';
+import SignIn from '../LoginPage/LoginPage';
+import SignupForm from '../../components/SignupForm/SignupForm';
+
 
 
 
@@ -57,7 +58,7 @@ async componentDidMount() {
             />
           }/>
           <Route exact path='/signup' render={({ history }) => 
-            <SignUp 
+            <SignUp
               history={history}
               handleSignupOrLogin={this.handleSignupOrLogin}
             />

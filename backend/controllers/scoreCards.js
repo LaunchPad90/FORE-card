@@ -7,6 +7,7 @@ module.exports = {
 }
 
 async function create(req, res) {
+    console.log('scorecardcontroller{}{}{}')
     try {
         await ScoreCard.create(req.body);
     } catch(err) {
