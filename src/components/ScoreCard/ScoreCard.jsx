@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import Grid from '@material-ui/core/Grid'
 import '../CardRow/CardRow.css'
-
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import CardRow from '../CardRow/CardRow';
+import * as courseService from '../../utils/courseService';
+
 
 export default function ScoreCard(props) {
     const useStyles = makeStyles((theme) => ({
@@ -32,7 +33,9 @@ export default function ScoreCard(props) {
     return (
         <div>
             <div>
-                <CardRow />
+                <CardRow 
+                    user={props.user}
+                />
             </div> 
         </div>
     )

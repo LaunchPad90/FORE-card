@@ -8,9 +8,11 @@ import Paper from '@material-ui/core/Paper';
 
 
 
-export default function CardRow() {
+export default function CardRow(props) {
 
-    const [] = useState({
+    const [cardRow, setCardRow] = useState({
+        name: `${props.user.name}`,
+        holeNum: [1, 2, 3, 4, 5, 6, 6, 8, 9]
 
     })
 
@@ -39,16 +41,27 @@ export default function CardRow() {
             <Grid item xs={1}></Grid>
             {/* for spacing purposes */}
                 <Grid item xs={2}>
-                    <Paper className={classes.paper}><p>#</p></Paper>
+                    <Paper className={classes.paper}>
+                        <p>{cardRow.holeNum[0]}</p>
+                    </Paper>
                 </Grid>
 
                 <Grid item xs={2}>
-                    <Paper className={classes.paper}><Par/></Paper>
+                    <Paper className={classes.paper}>
+                        <Par/>
+                    </Paper>
                 </Grid>
 
-                <Grid container className={classes.container} xs={6}>
-                    <Grid item xs={12}>                    
-                        <Paper className={classes.paper}><PlayerScore/></Paper>
+                <Grid container item className={classes.container} xs={6}>
+                    <Grid item xs={6}>                    
+                        <Paper className={classes.paper}>
+                            <PlayerScore/>
+                        </Paper>
+                    </Grid>
+                    <Grid item xs={6}>                    
+                        <Paper className={classes.paper}>
+                            <PlayerScore/>
+                        </Paper>
                     </Grid>
                 </Grid>
             {/* for spacing purposes */}
