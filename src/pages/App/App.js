@@ -85,7 +85,7 @@ async componentDidMount() {
             userService.getUser() ?
               <ScoreCardPage 
                 user={userService.getUser()}
-                oneCourse={this.state.oneCourse}
+                allCourses={this.state.allCourses}
               />
             :
               <Redirect to='/login'/>

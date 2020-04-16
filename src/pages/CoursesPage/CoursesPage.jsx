@@ -1,23 +1,34 @@
-import React from 'react'
+import React, {useState} from 'react'
 import '../CoursesPage/CoursesPage.css';
 
 
 const CoursesPage = (props) => {
 
+    const [courseData, setCourseData] = useState({
+        name: '',
+        courseId: '',
+        pars: []
+    })
+
     const parScore = (total, num) => {
         return total + num;
     }
     
-    const handleCreateCard = () => {
+    const handleCreateCard = (courseData) => {
+        setCourseData({
+            ...courseData
+        })
+        console.log(courseData)
         props.history.push('/scorecards')
     }
 
 
     const allCourses = props.allCourses.map((course, idx) => {
         return (
-            <div onClick={handleCreateCard} className="course-container">
-                <p> {course.name} </p>
-                <p>par: {course.pars.reduce(parScore)} </p>
+            <div course={course} onClick={() => handleCreateCard(course)} className="course-container">
+                <p name="name" value={courseData.name}> {course.name} </p>
+                <p name="courseId" value={courseData.courseId}> {course._id} </p>
+                <p name="pars" value={courseData.pars}>par: {course.pars.reduce(parScore)} </p>
             </div>
         )
     })
