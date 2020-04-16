@@ -3,6 +3,7 @@ import CardRow from '../CardRow/CardRow';
 
 
 export default function ScoreCard(props) {
+    console.log(props)
 
     return (
         <div>

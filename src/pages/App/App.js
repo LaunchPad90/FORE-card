@@ -26,7 +26,8 @@ class App extends Component {
   getInitialState = () => {
     return{
       user: userService.getUser(),
-      allCourses: []
+      allCourses: [], 
+      
     }
   }
 
@@ -45,7 +46,6 @@ class App extends Component {
 async componentDidMount() {
   // const scoreCard = await scoreCardService.index();
   const allCourses = await courseService.index();
-  console.log('COMPONENTDIDMONUTN', allCourses)
   this.setState({allCourses})
 }
 
@@ -85,14 +85,16 @@ async componentDidMount() {
             userService.getUser() ?
               <ScoreCardPage 
                 user={userService.getUser()}
+                oneCourse={this.state.oneCourse}
               />
             :
               <Redirect to='/login'/>
           }/>
 
-          <Route exact path='/allCourses' render={() => 
+          <Route exact path='/allCourses' render={({ history }) => 
             <CoursesPage
               allCourses={this.state.allCourses}
+              history={history}
             />
           }/>
 

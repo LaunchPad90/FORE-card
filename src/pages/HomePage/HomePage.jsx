@@ -7,13 +7,18 @@ import ScoreCardPage from '../ScoreCardPage/ScoreCardPage';
 
 const HomePage = (props) => {
 
-  
+    const handleRoundClick = () => {
+        props.history.push('/allCourses')
+    }
 
     return (
         <div>
-            <button  className="StartRound">Setup Round</button>   
+            <button onClick={handleRoundClick} className="start-round-button">Setup Round</button>   
             <div>
-                <ScoreCardPage />
+                <h1>Profile</h1>
+            </div>
+            <div className="recent-scores-container">
+                <h4>Recent Scores</h4>
             </div>
         </div>
     )

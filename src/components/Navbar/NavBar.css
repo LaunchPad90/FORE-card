@@ -1,4 +1,12 @@
-.Nav-Container {
+.nav-container {
     display: flex;
     justify-content: space-evenly;
+    background-color: blue;
+    height: 50px;
+}
+
+.nav-link {
+    color: white; 
+    text-decoration: none;
+    border: 1px solid white;
 }
