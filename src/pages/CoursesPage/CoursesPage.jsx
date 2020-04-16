@@ -1,12 +1,23 @@
-import React, { Component } from 'react'
-import Course from '../../components/Course/Course'
+import React from 'react'
 
-export default class CoursesPage extends Component {
-    render() {
+
+
+const CoursesPage = (props) => {
+    const allCourses = props.allCourses.map((course, idx) => {
         return (
             <div>
-                <Course />
+                <p>name: {course.name} </p>
+                <p>pars: {course.pars.join(', ')} </p>
+
             </div>
         )
-    }
+    })
+
+    return (
+        <div>
+            {allCourses}
+        </div>
+    )
 }
+
+export default CoursesPage;

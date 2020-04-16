@@ -47,7 +47,7 @@ export default function CardRow(props) {
 
                 <Grid item xs={2}>
                     <Paper className={classes.paper}>
-                        <Par/>
+                        {/* <Par/> */}
                     </Paper>
                 </Grid>
 

@@ -23,3 +23,4 @@ export function index() {
     return fetch(BASE_URL + '/allCourses', options).then(res => res.json());
 }
 
+

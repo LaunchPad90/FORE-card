@@ -8,6 +8,7 @@ class ScoreCardPage extends Component {
         return(
             <ScoreCard 
                 user={this.props.user}
+                course={this.props.course}
             />
         )
     }

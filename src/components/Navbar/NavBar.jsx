@@ -1,16 +1,16 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-
+import '../Navbar/NavBar.css';
 
 
 
 const NavBar = (props) => {
     let nav = props.user ?
-    <div>
-        <Link to='/' className='NavBar-link'>{props.user.name}</Link>
-        <Link to='' className='NavBar-link' onClick={props.handleLogOut}>Logout</Link>
-        <Link to='/scorecards' className='NavBar-link'>Score Cards</Link>
+    <div className="Nav-Container">
+        <Link to='/home' className='NavBar-link'>{props.user.name}</Link>
+        {/* <Link to='/scorecards' className='NavBar-link'>Score Cards</Link> */}
         <Link to='/map' className='NavBar-link'>Find Courses</Link>
+        <Link to='' className='NavBar-link' onClick={props.handleLogOut}>Logout</Link>
       </div>
       :
       <div>

@@ -5,11 +5,11 @@ import { Route, Switch, Redirect } from 'react-router-dom';
 import HomePage from '../HomePage/HomePage';
 import ScoreCardPage from '../../pages/ScoreCardPage/ScoreCardPage';
 import NavBar from '../../components/Navbar/NavBar';
-import Course from '../../components/Course/Course';
 import SignUp from '../../components/SignupForm/MaterialSignUp';
 import Login from '../LoginPage/MaterialLoginPage';
 import SimpleMap from '../../components/Map/Map'
 import * as courseService from '../../utils/courseService';
+import CoursesPage from '../CoursesPage/CoursesPage';
 
 
 
@@ -26,7 +26,7 @@ class App extends Component {
   getInitialState = () => {
     return{
       user: userService.getUser(),
-      
+      allCourses: []
     }
   }
 
@@ -60,7 +60,7 @@ async componentDidMount() {
         </header>
         <Switch>
 
-          <Route exact path='/' render={({ history }) => 
+          <Route exact path='/home' render={({ history }) => 
             <HomePage 
               history={history}
               user={userService.getUser()}
@@ -90,8 +90,10 @@ async componentDidMount() {
               <Redirect to='/login'/>
           }/>
 
-          <Route exact path='/courses' render={() => 
-            <Course />
+          <Route exact path='/allCourses' render={() => 
+            <CoursesPage
+              allCourses={this.state.allCourses}
+            />
           }/>
 
             <Route path='/map' render={() => 

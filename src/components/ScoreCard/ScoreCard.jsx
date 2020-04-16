@@ -7,9 +7,7 @@ export default function ScoreCard(props) {
     return (
         <div>
             <div>
-                <CardRow 
-                    
-                />
+                <CardRow/>
             </div> 
         </div>
     )

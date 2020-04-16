@@ -45,7 +45,7 @@ export default function Login(props) {
     try {
       await userService.login(loginData);
       props.handleSignupOrLogin();
-      props.history.push('/');
+      props.history.push('/home');
       console.log('submit from loginpage')
     } catch (err) {
       alert('Invalid Credentials!');
