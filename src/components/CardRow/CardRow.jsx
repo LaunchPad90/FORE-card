@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import Grid from '@material-ui/core/Grid'
 import '../CardRow/CardRow.css'
 import PlayerScore from './PlayerScore/PlayerScore';
-import Par from './Par/Par';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 
@@ -11,7 +10,8 @@ import Paper from '@material-ui/core/Paper';
 export default function CardRow(props) {
 
     const [cardRow, setCardRow] = useState({
-        holeNum: [1, 2, 3, 4, 5, 6, 6, 8, 9]
+        holeNum: [1, 2, 3, 4, 5, 6, 6, 8, 9],
+        pars: []
 
     })
 
@@ -47,7 +47,7 @@ export default function CardRow(props) {
 
                 <Grid item xs={2}>
                     <Paper className={classes.paper}>
-                        {/* <Par/> */}
+                        <p>{props.course.pars[0]}</p>
                     </Paper>
                 </Grid>
 

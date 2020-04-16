@@ -1,9 +1,10 @@
 import React, {useState} from 'react'
 import '../CoursesPage/CoursesPage.css';
+import { useHistory } from "react-router-dom";
 
 
 const CoursesPage = (props) => {
-
+    let history = useHistory();
     const [courseData, setCourseData] = useState({
         name: '',
         courseId: '',
@@ -19,7 +20,12 @@ const CoursesPage = (props) => {
             ...courseData
         })
         console.log(courseData)
-        props.history.push('/scorecards')
+        // props.history.push(`/scorecards:${courseData}`)
+        props.history.push({
+            pathname: `/scorecards:${courseData}`,
+            state: {detail: courseData}
+          })
+          
     }
 
 
@@ -27,7 +33,6 @@ const CoursesPage = (props) => {
         return (
             <div course={course} onClick={() => handleCreateCard(course)} className="course-container">
                 <p name="name" value={courseData.name}> {course.name} </p>
-                <p name="courseId" value={courseData.courseId}> {course._id} </p>
                 <p name="pars" value={courseData.pars}>par: {course.pars.reduce(parScore)} </p>
             </div>
         )

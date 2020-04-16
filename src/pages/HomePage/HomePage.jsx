@@ -1,7 +1,5 @@
 import React from 'react';
 import '../HomePage/HomePage.css'
-import ScoreCard from '../../components/ScoreCard/ScoreCard';
-import ScoreCardPage from '../ScoreCardPage/ScoreCardPage';
 
 
 
