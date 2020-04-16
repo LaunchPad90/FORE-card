@@ -11,7 +11,6 @@ import Paper from '@material-ui/core/Paper';
 export default function CardRow(props) {
 
     const [cardRow, setCardRow] = useState({
-        name: `${props.user.name}`,
         holeNum: [1, 2, 3, 4, 5, 6, 6, 8, 9]
 
     })
