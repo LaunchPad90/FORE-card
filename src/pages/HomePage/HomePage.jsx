@@ -1,5 +1,6 @@
 import React from 'react';
 import '../HomePage/HomePage.css'
+import OutlinedCard from '../../components/RecapCard/MaterailCard';
 
 
 
@@ -16,7 +17,15 @@ const HomePage = (props) => {
                 <h1>Profile</h1>
             </div>
             <div className="recent-scores-container">
-                <h4>Recent Scores</h4>
+                <OutlinedCard />
+                <OutlinedCard />
+                <OutlinedCard />
+                <OutlinedCard />
+                <OutlinedCard />
+                <OutlinedCard />
+                <OutlinedCard />
+                <OutlinedCard />
+                <OutlinedCard />
             </div>
         </div>
     )

@@ -4,6 +4,8 @@ const Schema = mongoose.Schema;
 const courseSchema = new Schema({
     name: String,
     pars: [Number],
+}, {
+    timestamps: true
 })
 
 module.exports = mongoose.model('Course', courseSchema);

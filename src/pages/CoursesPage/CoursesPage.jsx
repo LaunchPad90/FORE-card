@@ -31,15 +31,16 @@ const CoursesPage = (props) => {
 
     const allCourses = props.allCourses.map((course, idx) => {
         return (
-            <div course={course} onClick={() => handleCreateCard(course)} className="course-container">
+            <div course={course} onClick={() => handleCreateCard(course)} className="course-card">
                 <p name="name" value={courseData.name}> {course.name} </p>
                 <p name="pars" value={courseData.pars}>par: {course.pars.reduce(parScore)} </p>
             </div>
+            
         )
     })
 
     return (
-        <div>
+        <div className="course-container">
             {allCourses}
         </div>
     )

@@ -11,6 +11,8 @@ const scoreCardSchema = new Schema ({
         ref: 'Course'
     },
     scores: [Number]
+}, {
+    timestamps: true
 })
 
 module.exports = mongoose.model('ScoreCard', scoreCardSchema);

@@ -1,6 +1,18 @@
-.course-container {
+
+.course-card {
     display: flex;
     flex-direction: column;
+    min-width: 250px;
+    border: 1px solid black;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 3%;
+}
+
+.course-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
     border: 1px solid black;
