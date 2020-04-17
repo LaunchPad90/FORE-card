@@ -7,7 +7,7 @@ router.use(require('../../config/auth'));
 
 
 
-router.get('/', scoreCardCtrl.index)
+router.get('/allScoreCards', scoreCardCtrl.index)
 router.post('/', checkAuth, scoreCardCtrl.create);
 
 

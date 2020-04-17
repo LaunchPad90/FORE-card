@@ -65,7 +65,7 @@ async componentDidMount() {
             <HomePage 
               history={history}
               user={userService.getUser()}
-              scoreCards={scoreCardService.index}
+              scoreCards={scoreCardService.index()}
             />
           }/>
 
