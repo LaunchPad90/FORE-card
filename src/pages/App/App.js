@@ -81,7 +81,7 @@ async componentDidMount() {
             />
           }/>
 
-          <Route exact path='/scorecards:courseData' component={ScoreCardPage} render={() => 
+          <Route exact path='/scorecards:id' component={ScoreCardPage} render={() => 
             userService.getUser() ?
               <ScoreCardPage 
                 user={userService.getUser()}

@@ -3,12 +3,19 @@ import { Component, useLocation } from 'react';
 import CardRow from '../../components/CardRow/CardRow'
 
 class ScoreCardPage extends Component {
+
+    handleScoreSubmit() {
+        
+    }
    
     render() {
         return(
-            <CardRow
-                course={this.props.location.state.detail}          
-            />
+            <div>
+                <CardRow
+                    course={this.props.location.state.detail}          
+                />
+                <button>Submit Score</button>
+            </div>
         )
     }
 }

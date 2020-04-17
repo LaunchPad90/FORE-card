@@ -13,9 +13,8 @@ const NavBar = (props) => {
         <Link to='' className='nav-link' onClick={props.handleLogOut}>Logout</Link>
       </div>
       :
-      <div>
+      <div className="nav-container">
         <Link to='/login' className='nav-link'>LOG IN</Link>
-        &nbsp;&nbsp;|&nbsp;&nbsp;
         <Link to='/signup' className='nav-link'>SIGN UP</Link>
         
       </div>;

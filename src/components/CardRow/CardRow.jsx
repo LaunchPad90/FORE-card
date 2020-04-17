@@ -52,12 +52,7 @@ export default function CardRow(props) {
                     </Grid>
     
                     <Grid container item className={classes.container} xs={6}>
-                        <Grid item xs={6}>                    
-                            <Paper className={classes.paper}>
-                                <PlayerScore/>
-                            </Paper>
-                        </Grid>
-                        <Grid item xs={6}>                    
+                        <Grid item xs={12}>                    
                             <Paper className={classes.paper}>
                                 <PlayerScore/>
                             </Paper>
