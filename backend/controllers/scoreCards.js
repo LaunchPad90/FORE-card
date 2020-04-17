@@ -20,6 +20,7 @@ async function index(req, res) {
     try {
         const scoreCards = await ScoreCard.find({})
         console.log('CONTROLLER INDEX SCORECARD', scoreCards)
+        res.status(200).json(scoreCards)
     } catch(err) {
         res.json({err});
     }

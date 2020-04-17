@@ -45,6 +45,9 @@ class ScoreCardPage extends Component {
                         <div className="player-score">
                             <input name={`hole${idx + 1}`} onChange={this.handleChange} type="text"/>
                         </div>
+                        <div>
+                            {/* Round Score: {this.state.scores} */}
+                        </div>
                     </div>
                     )})}
                     <button onClick={this.handleScoreSubmit}>Submit Score</button>

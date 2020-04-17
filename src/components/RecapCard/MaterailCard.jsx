@@ -27,31 +27,35 @@ export default function OutlinedCard(props) {
   
   const classes = useStyles();
 
-
-
   return (
-      <div className="card">
-        <Card className={classes.root} variant="outlined">
-        <CardContent>
-            <Typography className={classes.title} color="textSecondary" gutterBottom>
-            Date
-            </Typography>
-            <Typography variant="h5" component="h2">
-            Course Name
-            </Typography>
-            <Typography className={classes.pos} color="textSecondary">
-            Par
-            </Typography>
-            <Typography variant="body2" component="p">
-            Score
-            <br />
-            Front 9, Back 9
-            </Typography>
-        </CardContent>
-        <CardActions>
-            <Button size="small">View Card</Button>
-        </CardActions>
-        </Card>
-    </div>
+    <div>
+      {props.scoreCards.map((cards, idx) => {
+        return(
+          <div key={idx} className="card">
+            <Card className={classes.root} variant="outlined">
+            <CardContent>
+                <Typography className={classes.title} color="textSecondary" gutterBottom>
+                Date
+                </Typography>
+                <Typography variant="h5" component="h2">
+                  <p>{props.scoreCards[idx].scores.hole1}</p>
+                </Typography>
+                <Typography className={classes.pos} color="textSecondary">
+                Par
+                </Typography>
+                <Typography variant="body2" component="p">
+                Score
+                <br />
+                Front 9, Back 9
+                </Typography>
+            </CardContent>
+            <CardActions>
+                <Button size="small">View Card</Button>
+            </CardActions>
+            </Card>
+        </div>
+        )
+      })}
+  </div>
   );
 }

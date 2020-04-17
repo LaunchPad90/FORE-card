@@ -48,6 +48,8 @@ class App extends Component {
 async componentDidMount() {
   const allCourses = await courseService.index();
   this.setState({allCourses})
+  const scoreCards = await scoreCardService.index();
+  this.setState({scoreCards})
 }
 
   render() {
@@ -65,7 +67,7 @@ async componentDidMount() {
             <HomePage 
               history={history}
               user={userService.getUser()}
-              scoreCards={scoreCardService.index()}
+              scoreCards={this.state.scoreCards}
             />
           }/>
 
@@ -98,7 +100,6 @@ async componentDidMount() {
             <CoursesPage
               allCourses={this.state.allCourses}
               history={history}
-              scoreCardService={scoreCardService.create}
             />
             :
             <Redirect to='/login'/>

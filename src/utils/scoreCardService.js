@@ -9,7 +9,7 @@ export function index() {
             'Authorization': 'Bearer ' + tokenService.getToken()
         }
     };
-    return fetch(BASE_URL + '/allScoreCards', options).then(res => res.json());
+    return fetch(BASE_URL + '/home', options).then(res => res.json());
 }
 
 export function create(ScoreCard) {
