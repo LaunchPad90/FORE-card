@@ -7,3 +7,5 @@ const db = mongoose.connection;
 db.once('connected', () => {
   console.log(`Connected to MongoDB ${process.env.DATABASE_URL}`);
 });
+
+module.exports = mongoose;
