@@ -10,7 +10,7 @@ const CoursesPage = (props) => {
         courseId: '',
         pars: []
     })
-
+    
     const parScore = (total, num) => {
         return total + num;
     }
@@ -19,13 +19,14 @@ const CoursesPage = (props) => {
         setCourseData({
             ...courseData
         })
+        
         console.log(courseData)
-        // props.history.push(`/scorecards:${courseData}`)
+        
         props.history.push({
             pathname: `/scorecards:${courseData}`,
             state: {detail: courseData}
           })
-          
+        //   
     }
 
 

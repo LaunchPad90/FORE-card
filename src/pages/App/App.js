@@ -10,6 +10,7 @@ import Login from '../LoginPage/MaterialLoginPage';
 import SimpleMap from '../../components/Map/Map'
 import * as courseService from '../../utils/courseService';
 import CoursesPage from '../CoursesPage/CoursesPage';
+import * as scoreCardService from '../../utils/scoreCardService';
 
 
 
@@ -27,9 +28,10 @@ class App extends Component {
     return{
       user: userService.getUser(),
       allCourses: [], 
-      
+      scoreCards: []
     }
   }
+
 
   handleLogOut = () => {
     userService.logOut();
@@ -44,7 +46,6 @@ class App extends Component {
   /* -------- Lifecycle Methods -------- */
 
 async componentDidMount() {
-  // const scoreCard = await scoreCardService.index();
   const allCourses = await courseService.index();
   this.setState({allCourses})
 }
@@ -64,6 +65,7 @@ async componentDidMount() {
             <HomePage 
               history={history}
               user={userService.getUser()}
+              scoreCards={scoreCardService.index}
             />
           }/>
 
@@ -92,10 +94,14 @@ async componentDidMount() {
           }/>
 
           <Route exact path='/allCourses' render={({ history }) => 
+            userService.getUser() ?
             <CoursesPage
               allCourses={this.state.allCourses}
               history={history}
+              scoreCardService={scoreCardService.create}
             />
+            :
+            <Redirect to='/login'/>
           }/>
 
             <Route path='/map' render={() => 

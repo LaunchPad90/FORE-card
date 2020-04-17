@@ -1,10 +1,15 @@
 import React from 'react';
 import '../HomePage/HomePage.css'
 import OutlinedCard from '../../components/RecapCard/MaterailCard';
+import * as scoreCardService from '../../utils/scoreCardService';
+import userService from '../../utils/userService';
+
+
 
 
 
 const HomePage = (props) => {
+
 
     const handleRoundClick = () => {
         props.history.push('/allCourses')
@@ -14,18 +19,12 @@ const HomePage = (props) => {
         <div>
             <button onClick={handleRoundClick} className="start-round-button">Setup Round</button>   
             <div>
-                <h1>Profile</h1>
+                <h1>{props.user.name}'s recent rounds</h1>
             </div>
             <div className="recent-scores-container">
-                <OutlinedCard />
-                <OutlinedCard />
-                <OutlinedCard />
-                <OutlinedCard />
-                <OutlinedCard />
-                <OutlinedCard />
-                <OutlinedCard />
-                <OutlinedCard />
-                <OutlinedCard />
+                <OutlinedCard 
+                    user={props.user}
+                />
             </div>
         </div>
     )

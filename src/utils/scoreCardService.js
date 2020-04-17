@@ -1,8 +1,8 @@
 import tokenService from './tokenService';
 
-const BASE_URL = '/api/scorecard';
+const BASE_URL = '/api/scorecards';
 
-function index() {
+export function index() {
     const options = {
         method: 'GET',
         headers: {
@@ -12,7 +12,8 @@ function index() {
     return fetch(BASE_URL, options).then(res => res.json());
 }
 
-function create(ScoreCard) {
+export function create(ScoreCard) {
+    console.log(ScoreCard)
     const options = {
         method: 'POST',
         headers: {
@@ -24,7 +25,3 @@ function create(ScoreCard) {
     return fetch(BASE_URL, options).then(res => res.json());
 }
 
-export default {
-    index,
-    create
-}

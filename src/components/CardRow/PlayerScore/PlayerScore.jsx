@@ -12,7 +12,7 @@ export default function PlayerScore() {
         <div>
             <div className="playerScore">
                 <div >
-                    <p>somethign</p>
+                    <input type="text"/>
                 </div>
             </div>
         </div>

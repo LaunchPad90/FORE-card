@@ -9,7 +9,8 @@ module.exports = {
 async function create(req, res) {
     console.log('scorecardcontroller{}{}{}')
     try {
-        await ScoreCard.create(req.body);
+        const scoreCard = await ScoreCard.create(req.body);
+        res.status(200).json(scoreCard)
     } catch(err) {
         res.json({err});
     }
@@ -17,7 +18,8 @@ async function create(req, res) {
 
 async function index(req, res) {
     try {
-        await ScoreCard.index(req.body)
+        const scoreCards = await ScoreCard.find({})
+        console.log('CONTROLLER FUNC SCORECARD', scoreCards)
     } catch(err) {
         res.json({err});
     }

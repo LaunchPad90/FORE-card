@@ -23,8 +23,11 @@ const useStyles = makeStyles({
   },
 });
 
-export default function OutlinedCard() {
+export default function OutlinedCard(props) {
+  
   const classes = useStyles();
+
+
 
   return (
       <div className="card">
