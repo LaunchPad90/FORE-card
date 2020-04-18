@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
   },
   avatar: {
     margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main,
+    backgroundColor: theme.palette.primary.dark,
   },
   form: {
     width: '100%', // Fix IE 11 issue.
@@ -29,6 +29,7 @@ const useStyles = makeStyles((theme) => ({
   },
   submit: {
     margin: theme.spacing(3, 0, 2),
+    backgroundColor: theme.palette.primary.drak
   },
   
 }));
@@ -101,7 +102,6 @@ export default function SignUp(props) {
                 label="User Name"
                 autoFocus
                 onChange={handleChange}
-                color="secondary"
               />
             </Grid>
             <Grid item xs={12}>

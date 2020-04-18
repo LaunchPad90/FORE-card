@@ -25,3 +25,9 @@ export function create(ScoreCard) {
     return fetch(BASE_URL, options).then(res => res.json());
 }
 
+export function removeCard(id) {
+    return fetch(`${BASE_URL}/${id}`, {
+      method: 'DELETE'
+    }).then(res => res.json());
+  }
+  

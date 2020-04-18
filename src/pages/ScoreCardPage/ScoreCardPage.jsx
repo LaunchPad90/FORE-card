@@ -22,31 +22,24 @@ class ScoreCardPage extends Component {
     }
 
     handleChange = (e) => {
+        const sum = this.playerScore(e.target.value)
         this.setState({
             scores: {
                 ...this.state.scores, 
                 [e.target.name]: e.target.value
-            }
+            },
+            scoreTotal: sum
         })
+        this.props.history.push('/home')
     }
 
-    // total = (score) => {
-    //     let sum = score => score.reduce((a, b) => 
-    //          a + b, 0);
-        
-    //         console.log('SUMMM', sum)
-    // }
-
-    playerScore =  () => {
+    playerScore =  (currentScore) => {
         let score = Object.values(this.state.scores)
         const newScores = score.map(Number)
-        // this.total(score)
         let sum = newScores.reduce((a, b) => 
              a + b, 0);
-        
-            // console.log('SUMMM', sum)
         console.log(sum)
-        return sum
+        return sum + parseInt(currentScore)
     }
    
     
@@ -64,12 +57,12 @@ class ScoreCardPage extends Component {
                             <p>{par}</p>
                         </div>
                         <div className="player-score">
-                            <input name={`hole${idx + 1}`} onChange={this.handleChange} type="text"/>
+                            <input autoComplete="none" name={`hole${idx + 1}`} onChange={this.handleChange} type="text"/>
                         </div>
                     </div>
                     )})}
                         <div>
-                            Round Score: {this.playerScore(this.handleChange)}
+                            Round Score: {this.state.scoreTotal}
                         </div>
                     <button onClick={this.handleScoreSubmit}>Submit Score</button>
             </div>

@@ -14,21 +14,34 @@ const HomePage = (props) => {
         props.history.push('/allCourses')
     }
     
-            return (
-                <div>
-                    <button onClick={handleRoundClick} className="start-round-button">Setup Round</button>   
-                    <div>
-                        <h1>{props.user.name}'s recent rounds</h1>
-                        
-                    </div>
-                    <div className="recent-scores-container">
-                        <OutlinedCard 
-                            user={props.user}
-                            scoreCards={props.scoreCards}
-                        />
-                    </div>
-                </div>
-            )
-}
+    let cards = (props.user._id.equals(props.scoreCards.user)) ?
+    
+            <div className="recent-scores-container">
+                <OutlinedCard 
+                    user={props.user}
+                    scoreCards={props.scoreCards}
+                    handleRemoveCard={props.handleRemoveCard}
+                    history={props.history}
+                />
+            </div>
+            :
+            <div>No Recent Rounds</div>;
+        
+            
+        return (
+
+        <div>
+            <button onClick={handleRoundClick} className="start-round-button">Setup Round</button>   
+            <div>
+                <h1>{props.user.name}'s recent rounds</h1>
+                
+            </div>
+
+            <div className='NavBar'>
+              {cards}
+            </div>
+        </div>
+          );
+};
 
 export default HomePage;

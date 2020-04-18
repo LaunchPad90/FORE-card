@@ -8,13 +8,15 @@ import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles({
   root: {
-    minWidth: 225,
+    minWidth: 300,
+    maxHeight: 200,
+    marginBottom: 12
   },
-  bullet: {
-    display: 'inline-block',
-    margin: '0 2px',
-    transform: 'scale(0.8)',
-  },
+  // bullet: {
+  //   display: 'inline-block',
+  //   margin: '0 2px',
+  //   transform: 'scale(0.8)',
+  // },
   title: {
     fontSize: 14,
   },
@@ -27,6 +29,7 @@ export default function OutlinedCard(props) {
   
   const classes = useStyles();
 
+  
   return (
     <div>
       {props.scoreCards.map((cards, idx) => {
@@ -35,22 +38,17 @@ export default function OutlinedCard(props) {
             <Card className={classes.root} variant="outlined">
             <CardContent>
                 <Typography className={classes.title} color="textSecondary" gutterBottom>
-                Date
+                  Date: {props.scoreCards[idx].createdAt.slice(0, 10)}
                 </Typography>
-                <Typography variant="h5" component="h2">
-                  <p>{props.scoreCards[idx].scores.hole1}</p>
+                <Typography variant="body2" component="h5">
+                  Course: {props.scoreCards[idx].course.name}
                 </Typography>
-                <Typography className={classes.pos} color="textSecondary">
-                Par
-                </Typography>
-                <Typography variant="body2" component="p">
-                Score
-                <br />
-                Front 9, Back 9
+                <Typography variant="body2" component="h4">
+                  <p>Score: {props.scoreCards[idx].scoreTotal}</p>
                 </Typography>
             </CardContent>
             <CardActions>
-                <Button size="small">View Card</Button>
+                <Button onClick={props.handleRemoveCard}variant="outlined" size="small">Delete</Button>
             </CardActions>
             </Card>
         </div>
@@ -59,3 +57,5 @@ export default function OutlinedCard(props) {
   </div>
   );
 }
+
+

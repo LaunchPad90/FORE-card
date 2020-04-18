@@ -11,6 +11,7 @@ import SimpleMap from '../../components/Map/Map'
 import * as courseService from '../../utils/courseService';
 import CoursesPage from '../CoursesPage/CoursesPage';
 import * as scoreCardService from '../../utils/scoreCardService';
+import LandingPage from '../Landing/LandingPage';
 
 
 
@@ -43,6 +44,13 @@ class App extends Component {
     this.setState({user: userService.getUser()});
   }
 
+  handleRemoveCard = async(id) => {
+    console.log('handleREMOVECARD')
+    await scoreCardService.removeCard(id);
+    this.setState(state => ({
+      scoreCards: state.scoreCards.filter(card => card._id !== id)
+    }), () => this.props.history.push('/home'));
+  }
   /* -------- Lifecycle Methods -------- */
 
 async componentDidMount() {
@@ -63,11 +71,16 @@ async componentDidMount() {
         </header>
         <Switch>
 
+          <Route exact path='/' render={() => 
+            <LandingPage />
+          }/>
+
           <Route exact path='/home' render={({ history }) => 
             <HomePage 
               history={history}
               user={userService.getUser()}
               scoreCards={this.state.scoreCards}
+              handleRemoveCard={this.handleRemoveCard}
             />
           }/>
 
@@ -85,11 +98,12 @@ async componentDidMount() {
             />
           }/>
 
-          <Route exact path='/scorecards:id' component={ScoreCardPage} render={() => 
+          <Route exact path='/scorecards:id' component={ScoreCardPage} render={({history}) => 
             userService.getUser() ?
               <ScoreCardPage 
                 user={userService.getUser()}
                 allCourses={this.state.allCourses}
+                history={history}
               />
             :
               <Redirect to='/login'/>
