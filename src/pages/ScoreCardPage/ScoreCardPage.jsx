@@ -11,7 +11,8 @@ class ScoreCardPage extends Component {
         holeNum: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18],
         scores: {},
         course: this.props.location.state.detail._id,
-        user: userService.getUser()
+        user: userService.getUser(),
+        scoreTotal: 0
     }
 
     handleScoreSubmit = async (e) => {
@@ -26,10 +27,30 @@ class ScoreCardPage extends Component {
                 ...this.state.scores, 
                 [e.target.name]: e.target.value
             }
-
         })
     }
+
+    // total = (score) => {
+    //     let sum = score => score.reduce((a, b) => 
+    //          a + b, 0);
+        
+    //         console.log('SUMMM', sum)
+    // }
+
+    playerScore =  () => {
+        let score = Object.values(this.state.scores)
+        const newScores = score.map(Number)
+        // this.total(score)
+        let sum = newScores.reduce((a, b) => 
+             a + b, 0);
+        
+            // console.log('SUMMM', sum)
+        console.log(sum)
+        return sum
+    }
    
+    
+
     render() {
         return(
             <div>
@@ -45,11 +66,11 @@ class ScoreCardPage extends Component {
                         <div className="player-score">
                             <input name={`hole${idx + 1}`} onChange={this.handleChange} type="text"/>
                         </div>
-                        <div>
-                            {/* Round Score: {this.state.scores} */}
-                        </div>
                     </div>
                     )})}
+                        <div>
+                            Round Score: {this.playerScore(this.handleChange)}
+                        </div>
                     <button onClick={this.handleScoreSubmit}>Submit Score</button>
             </div>
         )

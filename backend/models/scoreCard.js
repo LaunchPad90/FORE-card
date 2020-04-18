@@ -29,7 +29,8 @@ const scoreCardSchema = new Schema ({
         hole16: Number,
         hole17: Number,
         hole18: Number,
-    }
+    },
+    scoreTotal: Number
 }, {
     timestamps: true
 })
