@@ -65,8 +65,8 @@ const CoursesPage = (props) => {
             <Card className={classes.root} variant="outlined">
             <CardContent>
                 
-                <Typography variant="h5" component="h2">
-                    <h6 name="name" value={courseData.name}> {course.name}</h6>
+                <Typography variant="h5" component="h5">
+                    <h5 name="name" value={courseData.name}> {course.name}</h5>
                 </Typography>
                 <Typography className={classes.pos} color="textSecondary">
                     <h6 name="pars" value={courseData.pars}>par: {course.pars.reduce(parScore)} </h6>

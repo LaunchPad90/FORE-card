@@ -9,7 +9,7 @@ router.use(require('../../config/auth'));
 
 router.get('/home', scoreCardCtrl.index)
 router.post('/', checkAuth, scoreCardCtrl.create);
-router.delete('/scorecards/:id', checkAuth, scoreCardCtrl.delete);
+router.delete('/:id', checkAuth, scoreCardCtrl.delete);
 
 
 

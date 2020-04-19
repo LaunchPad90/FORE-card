@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import './App.css';
 import userService from '../../utils/userService';
-import { Route, Switch, Redirect } from 'react-router-dom';
+import { Route, Switch, Redirect, withRouter } from 'react-router-dom';
 import HomePage from '../HomePage/HomePage';
 import ScoreCardPage from '../../pages/ScoreCardPage/ScoreCardPage';
 import NavBar from '../../components/Navbar/NavBar';
-import SignUp from '../../components/SignupForm/MaterialSignUp';
-import Login from '../LoginPage/MaterialLoginPage';
+import SignUp from '../../components/SignupForm/SignUpForm';
+import Login from '../LoginPage/LoginPage';
 import SimpleMap from '../../components/Map/Map'
 import * as courseService from '../../utils/courseService';
 import CoursesPage from '../CoursesPage/CoursesPage';
@@ -18,8 +18,8 @@ import LandingPage from '../Landing/LandingPage';
 
 
 class App extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       ...this.getInitialState()
     }
@@ -36,27 +36,37 @@ class App extends Component {
 
   handleLogOut = () => {
     userService.logOut();
-    this.setState({ user: null });
+    this.setState({ user: null , scoreCards: []});
     localStorage.removeItem('token');
   }
 
-  handleSignupOrLogin = () => {
-    this.setState({user: userService.getUser()});
+  handleSignupOrLogin = async () => {
+    const scoreCards = await scoreCardService.index()
+    this.setState({user: userService.getUser(), scoreCards});
   }
 
   handleRemoveCard = async(id) => {
-    console.log('handleREMOVECARD')
+    console.log('handleREMOVECARD', id)
     await scoreCardService.removeCard(id);
     this.setState(state => ({
       scoreCards: state.scoreCards.filter(card => card._id !== id)
-    }), () => this.props.history.push('/home'));
+    }));
+    this.props.history.push('/home')
   }
+
+  handleAddCard = async (card) => {
+    const newCard = await scoreCardService.create(card)
+    this.setState({scoreCards: [...this.state.scoreCards, newCard]})
+  }
+
+
   /* -------- Lifecycle Methods -------- */
 
 async componentDidMount() {
   const allCourses = await courseService.index();
   this.setState({allCourses})
   const scoreCards = await scoreCardService.index();
+  console.log('DIDMOUNTSCORECARDS', scoreCards)
   this.setState({scoreCards})
 }
 
@@ -98,12 +108,13 @@ async componentDidMount() {
             />
           }/>
 
-          <Route exact path='/scorecards:id' component={ScoreCardPage} render={({history}) => 
+          <Route exact path='/scorecards:id' component={(props) => <ScoreCardPage {...props} handleAddCard={this.handleAddCard}/>} render={({history}) => 
             userService.getUser() ?
               <ScoreCardPage 
                 user={userService.getUser()}
                 allCourses={this.state.allCourses}
                 history={history}
+                handleAddCard={this.handleAddCard}
               />
             :
               <Redirect to='/login'/>
@@ -114,6 +125,8 @@ async componentDidMount() {
             <CoursesPage
               allCourses={this.state.allCourses}
               history={history}
+              handleAddCard={this.handleAddCard}
+
             />
             :
             <Redirect to='/login'/>
@@ -130,4 +143,4 @@ async componentDidMount() {
   }
   
 
-export default App;
+export default withRouter(App);

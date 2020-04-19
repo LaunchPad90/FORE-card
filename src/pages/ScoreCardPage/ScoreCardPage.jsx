@@ -15,10 +15,11 @@ class ScoreCardPage extends Component {
         scoreTotal: 0
     }
 
-    handleScoreSubmit = async (e) => {
+    handleScoreSubmit = (e) => {
         e.preventDefault();
-        await scoreCardService.create(this.state)
+        this.props.handleAddCard(this.state)
         
+        this.props.history.push('/home')
     }
 
     handleChange = (e) => {
@@ -30,7 +31,6 @@ class ScoreCardPage extends Component {
             },
             scoreTotal: sum
         })
-        this.props.history.push('/home')
     }
 
     playerScore =  (currentScore) => {

@@ -27,7 +27,11 @@ export function create(ScoreCard) {
 
 export function removeCard(id) {
     return fetch(`${BASE_URL}/${id}`, {
-      method: 'DELETE'
-    }).then(res => res.json());
+      method: 'DELETE',
+      headers: {
+        'Content-type': 'application/json',
+        'Authorization': 'Bearer ' + tokenService.getToken()
+    },
+    }).then(res => console.log(res));
   }
   

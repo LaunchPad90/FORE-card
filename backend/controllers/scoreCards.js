@@ -18,8 +18,9 @@ async function create(req, res) {
 }
 
 async function index(req, res) {
+    console.log('INDEXCTRL', req.user._id)
     try {
-        const scoreCards = await ScoreCard.find({}).populate('course')
+        const scoreCards = await ScoreCard.find({user:req.user._id}).populate('course')
         console.log('CONTROLLER INDEX SCORECARD', scoreCards)
         res.status(200).json(scoreCards)
     } catch(err) {
@@ -28,8 +29,10 @@ async function index(req, res) {
 }
 
 async function deleteCard(req, res) {
+    console.log('DELETECTRL', req.params)
     try {
-        const removeOne = await ScoreCard.findByIdAndRemove(req.params.id)
+        const removeOne = await ScoreCard.findOneAndDelete({_id: req.params.id})
+        console.log('DELTECTRL', removeOne)
         res.status(200).json(removeOne);
     } catch(err) {
         console.log('DELETE NO WORKY', err)

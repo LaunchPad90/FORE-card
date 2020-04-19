@@ -1,9 +1,9 @@
 import React from 'react';
 import '../HomePage/HomePage.css'
-import OutlinedCard from '../../components/RecapCard/MaterailCard';
-import * as scoreCardService from '../../utils/scoreCardService';
-import userService from '../../utils/userService';
-
+// import * as scoreCardService from '../../utils/scoreCardService';
+// import userService from '../../utils/userService';
+import Button from '@material-ui/core/Button';
+import RecapCard from '../../components/RecapCard/RecapCard';
 
 
 
@@ -14,10 +14,12 @@ const HomePage = (props) => {
         props.history.push('/allCourses')
     }
     
-    let cards = (props.user._id.equals(props.scoreCards.user)) ?
+    // let cards = (props.user._id === (props.scoreCards.user)) ?
     
+    let cards = props.scoreCards.length > 0 ?
+
             <div className="recent-scores-container">
-                <OutlinedCard 
+                <RecapCard 
                     user={props.user}
                     scoreCards={props.scoreCards}
                     handleRemoveCard={props.handleRemoveCard}
@@ -31,11 +33,19 @@ const HomePage = (props) => {
         return (
 
         <div>
-            <button onClick={handleRoundClick} className="start-round-button">Setup Round</button>   
+            <Button variant="outlined" onClick={handleRoundClick} className="start-round-button">Setup Round</Button>   
             <div>
                 <h1>{props.user.name}'s recent rounds</h1>
                 
             </div>
+            {/* <div className="recent-scores-container">
+                <RecapCard
+                    user={props.user}
+                    scoreCards={props.scoreCards}
+                    handleRemoveCard={props.handleRemoveCard}
+                    history={props.history}
+                />
+            </div> */}
 
             <div className='NavBar'>
               {cards}

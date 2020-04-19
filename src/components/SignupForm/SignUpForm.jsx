@@ -51,7 +51,7 @@ export default function SignUp(props) {
       try {
         await userService.signup(formData)
         props.handleSignupOrLogin();
-        props.history.push('/');
+        props.history.push('/home');
       }
       catch(err) {
         console.log(err)
@@ -92,7 +92,8 @@ export default function SignUp(props) {
           <Grid container spacing={2}>
             <Grid item xs={12}>
               <TextField
-                autoComplete="none"
+                
+                
                 name="name"
                 value={formData.name}
                 variant="outlined"

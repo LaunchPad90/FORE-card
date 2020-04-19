@@ -25,7 +25,7 @@ const useStyles = makeStyles({
   },
 });
 
-export default function OutlinedCard(props) {
+export default function RecapCard(props) {
   
   const classes = useStyles();
 
@@ -48,7 +48,7 @@ export default function OutlinedCard(props) {
                 </Typography>
             </CardContent>
             <CardActions>
-                <Button onClick={props.handleRemoveCard}variant="outlined" size="small">Delete</Button>
+                <Button onClick={() => props.handleRemoveCard(cards._id)}variant="outlined" size="small">Delete</Button>
             </CardActions>
             </Card>
         </div>
