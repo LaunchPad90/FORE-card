@@ -1,4 +1,5 @@
 import tokenService from './tokenService';
+import { Error } from 'mongoose';
 const BASE_URL = '/api/users/';
 
 function signup(user) {
