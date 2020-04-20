@@ -12,6 +12,7 @@ This app is depolyed on [heroku](https://fore-card.herokuapp.com/)
 * [React](https://reactjs.org/)
 * [Mongoose](https://mongoosejs.com/)
 * [Express](https://expressjs.com/)
+* [Trello](https://trello.com/b/aQziq4Gr/fore-card)
 
 ## Authors
 
@@ -21,6 +22,8 @@ This app is depolyed on [heroku](https://fore-card.herokuapp.com/)
 
 This project is un-licensed. Please feel free to steal this masterpiece. 
 
-## Acknowledgments
+## This is the end
 
+* Thanks for looking
 * This project was especially taxing on my brain. Much to Learn about React! See you in version 2.
+
