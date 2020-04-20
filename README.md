@@ -12,7 +12,7 @@ This app is depolyed on [heroku](https://fore-card.herokuapp.com/)
 * [React](https://reactjs.org/)
 * [Mongoose](https://mongoosejs.com/)
 * [Express](https://expressjs.com/)
-* [Trello](https://trello.com/b/aQziq4Gr/fore-card)
+* Planning through [Trello](https://trello.com/b/aQziq4Gr/fore-card)
 
 ## Authors
 
