@@ -1,0 +1,31 @@
+.hole-num {
+
+}
+
+.par {
+    
+}
+
+.player-score {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.row-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    border-bottom: 1px solid grey;
+}
+
+.score-button {
+    font-size: 24px;
+    border: 1px solid grey;
+    margin: 5% 0;
+}
+
+.score-total {
+    margin: 2% 0;
+}

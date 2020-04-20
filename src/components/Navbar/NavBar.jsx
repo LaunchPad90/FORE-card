@@ -5,6 +5,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import red from '@material-ui/core/colors/red';
+import { Button } from '@material-ui/core';
 
 const primary = red[500];
 
@@ -15,6 +16,7 @@ const useStyles = makeStyles((theme) => ({
   },
   menuButton: {
     marginRight: theme.spacing(2),
+    
   },
   title: {
     flexGrow: 1,
@@ -30,10 +32,18 @@ const NavBar = (props) => {
     <div className="nav-container">
       <AppBar position="static">
         <Toolbar>
-          <Link className={classes.button} to='/home' className='nav-link'>{props.user.name}</Link>
-          <Link to='/allCourses' className='nav-link'>Courses</Link>
-          <Link to='/map' className='nav-link'>Find Courses</Link>
-          <Link to='' className='nav-link' onClick={props.handleLogOut}>Logout</Link>
+          <Button>
+            <Link className={classes.menuButton} to='/home' className='nav-link'>{props.user.name}</Link>
+          </Button>
+          <Button>
+            <Link to='/allCourses' className='nav-link'>Courses</Link>
+          </Button>
+          <Button>
+            <Link to='/map' className='nav-link'>Map</Link>
+          </Button>
+          <Button>
+            <Link to='' className='nav-link' onClick={props.handleLogOut}>Logout</Link>
+          </Button>
         </Toolbar>
       </AppBar>
       </div>

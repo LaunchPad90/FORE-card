@@ -1,18 +1,14 @@
-import React from 'react'
-import { TextField } from '@material-ui/core'
+import React from 'react';
+import '../CardRow.css';
 
 export default function PlayerScore() {
 
-    const handlePlayerScore = (props) => {
-        return <p><TextField /></p>
-
-    }
 
     return (
         <div>
             <div className="playerScore">
                 <div >
-                    <input type="text"/>
+                    <input className="scoreNum" type="text"/>
                 </div>
             </div>
         </div>

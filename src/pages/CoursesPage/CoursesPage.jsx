@@ -32,7 +32,6 @@ const CoursesPage = (props) => {
 
     const [courseData, setCourseData] = useState({
         name: '',
-        courseId: '',
         pars: []
     })
     

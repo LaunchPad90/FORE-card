@@ -1,7 +1,6 @@
 import React from 'react';
 import { Component } from 'react';
-import CardRow from '../../components/CardRow/CardRow';
-import * as scoreCardService from '../../utils/scoreCardService';
+import '../ScoreCardPage/ScoreCardPage.css';
 import userService from '../../utils/userService';
 
 class ScoreCardPage extends Component {
@@ -51,20 +50,20 @@ class ScoreCardPage extends Component {
                 return(
                     <div key={idx} className="row-container">
                         <div className="hole-num">
-                            <p>{this.state.holeNum[idx]}</p>
+                            <p>Hole: {this.state.holeNum[idx]}</p>
                         </div>
                         <div className="par">
-                            <p>{par}</p>
+                            <p>Par: {par}</p>
                         </div>
                         <div className="player-score">
-                            <input autoComplete="none" name={`hole${idx + 1}`} onChange={this.handleChange} type="text"/>
+                            Score: <input autoComplete="none" name={`hole${idx + 1}`} onChange={this.handleChange} type="text"/>
                         </div>
                     </div>
                     )})}
-                        <div>
+                        <div className="score-total">                    
                             Round Score: {this.state.scoreTotal}
                         </div>
-                    <button onClick={this.handleScoreSubmit}>Submit Score</button>
+                    <button className="score-button" onClick={this.handleScoreSubmit}>Submit Score</button>
             </div>
         )
     }
