@@ -13,6 +13,7 @@ This app is depolyed on [heroku](https://fore-card.herokuapp.com/)
 * [Mongoose/MongoDB](https://mongoosejs.com/)
 * [Node/Express](https://expressjs.com/)
 * [GoogleMaps](https://developers.google.com/maps/documentation/javascript/tutorial)
+* The [Authentication](https://jwt.io/) made possible through JWT
 * Planning through [Trello](https://trello.com/b/aQziq4Gr/fore-card)
 
 ## Authors
