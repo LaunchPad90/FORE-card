@@ -1,9 +1,26 @@
-# Welcome to FORE!-card!
+# FORE!-card
 
-<p>Created with Express, Mongoose, and React</p>
-
-
-<p>In this app I wanted to make an easily accesible, and mobile version of your scorecard. Keeping track of your scores and places you've played in recent rounds.</p>
+Welcome, FORE!-card was designed to keep things simple on the golf course. I wanted to design a user friendly scorecard that was fun and interactive. 
 
 
-<a href="https://trello.com/b/aQziq4Gr/fore-card">Trello Board</a>
+## Deployment
+
+This app is depolyed on [heroku](https://fore-card.herokuapp.com/)
+
+## Built With
+
+* [React](https://reactjs.org/)
+* [Mongoose](https://mongoosejs.com/)
+* [Express](https://expressjs.com/)
+
+## Authors
+
+* **Jaocb Hickey**
+
+## License
+
+This project is un-licensed. Please feel free to steal this masterpiece. 
+
+## Acknowledgments
+
+* This project was especially taxing on my brain. Much to Learn about React! See you in version 2.
