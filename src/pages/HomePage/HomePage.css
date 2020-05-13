@@ -1,12 +1,14 @@
-.recent-scores-container {
+
+/* .recent-scores-container {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    min-height: 100px;
+    width: 100%;
+    border: 1px solid black;
     margin: 5% 3%;
-}
+} */
 
 .start-round-button {
     border: 1px solid black;
