@@ -35,32 +35,6 @@ export default function CardRow(props) {
 
     const pars = props.course.pars.map((par, idx) => {
         return (
-    
-            // <Grid container className={classes.container} spacing={1}>
-            //     <Grid item xs={1}></Grid>
-            //     {/* for spacing purposes */}
-            //         <Grid item xs={2}>
-            //             <Paper className={classes.paper}>
-            //                 <p>{cardRow.holeNum[idx]}</p>
-            //             </Paper>
-            //         </Grid>
-    
-            //         <Grid item xs={2}>
-            //             <Paper className={classes.paper}>
-            //                 <p>{props.course.pars[idx]}</p>
-            //             </Paper>
-            //         </Grid>
-    
-            //         <Grid container item className={classes.container} xs={6}>
-            //             <Grid item xs={12}>                    
-            //                 <Paper className={classes.paper}>
-            //                     <PlayerScore/>
-            //                 </Paper>
-            //             </Grid>
-            //         </Grid>
-            //     {/* for spacing purposes */}
-            //     <Grid xs={1}></Grid>
-            // </Grid>
             
             <div className="row-container">
                 <div className="hole-num">

@@ -45,25 +45,28 @@ class ScoreCardPage extends Component {
 
     render() {
         return(
-            <div>
-                {this.props.location.state.detail.pars.map((par, idx) => {
-                return(
-                    <div key={idx} className="row-container">
-                        <div className="hole-num">
-                            <p>Hole: {this.state.holeNum[idx]}</p>
+            <div className="page">
+                <div className="scorecard">
+                    <div className="scorecard__course"><span style={{borderBottom: `2px solid green`}}>{this.props.history.location.state.detail.name}</span></div>
+                    {this.props.location.state.detail.pars.map((par, idx) => {
+                    return(
+                        <div key={idx} className="scorecard__row">
+                            <div className="hole-num">
+                                <p>Hole: {this.state.holeNum[idx]}</p>
+                            </div>
+                            <div className="par">
+                                <p>Par: {par}</p>
+                            </div>
+                            <div className="player-score">
+                                Score: <input autoComplete="none" name={`hole${idx + 1}`} onChange={this.handleChange} type="text"/>
+                            </div>
                         </div>
-                        <div className="par">
-                            <p>Par: {par}</p>
-                        </div>
-                        <div className="player-score">
-                            Score: <input autoComplete="none" name={`hole${idx + 1}`} onChange={this.handleChange} type="text"/>
-                        </div>
-                    </div>
                     )})}
-                        <div className="score-total">                    
-                            Round Score: {this.state.scoreTotal}
-                        </div>
-                    <button className="score-button" onClick={this.handleScoreSubmit}>Submit Score</button>
+                    <div className="scorecard__total">                    
+                        Round Score: {this.state.scoreTotal}
+                    </div>
+                    <button className="scorecard__submit" onClick={this.handleScoreSubmit}>Submit Score</button>
+                </div>
             </div>
         )
     }

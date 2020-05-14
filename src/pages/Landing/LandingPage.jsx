@@ -16,8 +16,8 @@ const Page = styled.div`
 
 const Button = styled(Link)`
   margin: 1rem;
-  padding: .5rem;
-  font-size: 2rem;
+  padding: 0.5rem 2rem 0.5rem 2rem;
+  font-size: 1.3rem;
   background: white;
   border: 1px solid blue;
   border-radius: 100px;

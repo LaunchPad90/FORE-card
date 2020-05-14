@@ -17,8 +17,10 @@
 
 .row-container {
     display: flex;
+    flex-direction: row;
     justify-content: space-evenly;
     border: 3px solid black;
     margin: 1% 5%;
+    border: 10px solid black;
 }
 

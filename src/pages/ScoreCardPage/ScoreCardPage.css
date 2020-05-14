@@ -1,31 +1,47 @@
-/* .hole-num {
-
-}
-
-.par {
-    
-} */
-
-.player-score {
+.page {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+
+}
+
+.scorecard {
+    background: linear-gradient(
+        to left bottom, 
+        #fbfeffaf, 
+        #bebec0b7
+    );
+    display: flex;
+    flex-direction: column;
+    height: 70%;
+    width: 50%;
+    margin: 2rem;
+    box-shadow: -10px 15px 20px rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+}
+
+.scorecard__course {
+    font-size: 1.5rem;
+    margin: 1rem;
     
 }
 
-.row-container {
+.scorecard__row {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-evenly;
     border-bottom: 1px solid grey;
+    margin-bottom: 1rem;
 }
 
-.score-button {
-    font-size: 24px;
-    border: 1px solid grey;
-    margin: 5% 0;
+.scorecard__submit {
+    width: 15%;
+    align-self: center;
+    margin: 1rem;
+    font-size: 1rem;
 }
 
-.score-total {
-    margin: 2% 0;
+.scorecard__total {
+    margin-top: 1rem;
 }
